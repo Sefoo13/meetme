@@ -25,7 +25,8 @@ urlpatterns = [
 
     #auth urls
     url(r'^register', TemplateView.as_view(template_name="registration.html")),
-    url(r'^login', TemplateView.as_view(template_name="login.html")),
+    url(r'^login$', TemplateView.as_view(template_name="login.html")),
+    url(r'^register$', TemplateView.as_view(template_name="registration.html")),
     url(r'^login_form', login, name='login')
 
 

@@ -8,10 +8,11 @@ from django.contrib.auth.models import User
 
 
 
-#
-# def register(user):
-#     user = User.objects.create_user(user)
-#
+
+def register(request):
+
+    User.objects.create_user()
+
 def restore_password(request):
     u = User.objects.get(username='john')
     u.set_password('new password')
@@ -19,9 +20,9 @@ def restore_password(request):
 
 def login(request):
 
-    username = request.POST.get("email")
-    password = request.POST.get("pwd")
-
+    username = request.POST['login_field']
+    password = request.POST['pwd_field']
+    action = request.POST['action']
     user = authenticate(username=username, password=password)
     if user is not None:
         # the password verified for the user
