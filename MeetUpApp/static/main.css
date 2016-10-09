@@ -2,14 +2,6 @@
 {
     margin-top: 30px;
 }
-#main-image
-{
-    background-image: url("https://pp.vk.me/c636417/v636417697/20004/_8KZYcQqdY4.jpg");
-    background-size: cover;
-    height: 500px;
-    margin-bottom: 0;
-
-}
 
 #navigation
 {
@@ -17,16 +9,25 @@
     border-bottom: 1px solid #ccc;
 }
 
-#search-form
-{
-    position: relative;
-    opacity: 0.8;
-    height: 100px;
-    background-color: rgba(0,0,0,0.6);
-    margin-top: 264px;
-}
+
 h1
 {
     font-family: 'Poiret One', cursive;
     color: #e9482b !important;
+}
+.carousel-inner img
+{
+    height: 100px;!important;
+}
+
+.test-design
+{
+    background-color: darkgrey;
+    height: 100px;
+}
+
+hr
+{
+    display: inline-block;
+    width: 40%;
 }
