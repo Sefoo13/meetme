@@ -12,7 +12,7 @@ class UserDetails(models.Model):
     rating = models.IntegerField
     description = models.TextField
     photo = models.ImageField
-    u = models.ForeignKey(User)
+    user = models.OneToOneField(User)
 
 class Meetings(models.Model):
     text = models.TextField
