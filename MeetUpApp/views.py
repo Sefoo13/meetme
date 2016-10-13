@@ -47,6 +47,7 @@ def authorization(request):
 @login_required
 def account(request):
     userId = request.user.id
-    user = User.objects.get(id=userId)
-    pass
+    user_details = UserDetails.objects.get(user_id=userId)
+    a = 0
+
 

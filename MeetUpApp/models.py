@@ -15,6 +15,7 @@ class UserDetails(models.Model):
     rating = models.IntegerField(default=0)
     description = models.TextField(default="Not set")
     user = models.OneToOneField(User)
+    agree_to_meet = models.BooleanField(default=False)
 
 class Meetings(models.Model):
     text = models.TextField
@@ -22,6 +23,7 @@ class Meetings(models.Model):
     city = models.CharField(max_length=50)
     date_arrive = models.DateField
     date_leave = models.DateField
+    find_local = models.BooleanField(default=False)
     user = models.ForeignKey(User)
 
 

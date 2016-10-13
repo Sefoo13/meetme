@@ -38,7 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'MeetUpApp',
+    'django_messages',
+    'django.contrib.sites'
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
