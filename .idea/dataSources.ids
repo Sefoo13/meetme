@@ -447,20 +447,25 @@ model</columns>
         <mandatory>1</mandatory>
         <data-type>date|0</data-type>
       </column>
-      <column id="112" parent="17" name="u_id">
+      <column id="112" parent="17" name="user_id">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
       </column>
-      <index id="113" parent="17" name="MeetUpApp_userdetails_u_id_a606170b_fk_auth_user_id">
-        <columns>u_id</columns>
+      <index id="113" parent="17" name="user_id">
+        <columns>user_id</columns>
         <desc-columns></desc-columns>
+        <unique>1</unique>
       </index>
       <key id="114" parent="17" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="115" parent="17" name="MeetUpApp_userdetails_u_id_a606170b_fk_auth_user_id">
-        <columns>u_id</columns>
+      <key id="115" parent="17" name="user_id">
+        <columns>user_id</columns>
+        <underlying-index>user_id</underlying-index>
+      </key>
+      <foreign-key id="116" parent="17" name="MeetUpApp_userdetails_user_id_464ff01e_fk_auth_user_id">
+        <columns>user_id</columns>
         <ref-key>~.auth_user.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>

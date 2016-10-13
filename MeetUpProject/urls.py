@@ -13,7 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from MeetUpApp.views import auth, account
+from MeetUpApp.views import account, authorization
 from django.conf.urls import url
 from django.contrib import admin
 from django.views.generic import TemplateView
@@ -26,7 +26,7 @@ urlpatterns = [
     #auth urls
     url(r'^register$', TemplateView.as_view(template_name="registration.html")),
     url(r'^login$', TemplateView.as_view(template_name="login.html")),
-    url(r'^login_form$', auth, name='auth'),
+    url(r'^login_form$', authorization, name='auth'),
     url(r'^account$', account, name='account')
 
 
