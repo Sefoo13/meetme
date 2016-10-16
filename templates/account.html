@@ -5,7 +5,14 @@
     <title>Account</title>
 </head>
 <body>
-<div class="userprofile-options"></div>
+
+<div class="userprofile-options">
+    <h1>{{ user_details.full_name }}</h1>
+    <span>{{ user_details.birthday }}</span>
+    <span>{{ user_details.country }}</span>
+    <span>{{ user_details.city }}</span>
+    <a href="/account/edit/{{ user_details.user_id }}"><button>Change</button></a>
+</div>
 <div></div>
 </body>
 </html>

@@ -48,6 +48,13 @@ def authorization(request):
 def account(request):
     userId = request.user.id
     user_details = UserDetails.objects.get(user_id=userId)
-    a = 0
+    context = {'user_details':user_details}
+    return render(request, "account.html", context)
 
+@login_required
+def edit_info(request, **kwargs):
+    userId = kwargs['user_id']
+    user_details = UserDetails.objects.get(user_id=userId)
+    context = {'user_details': user_details}
+    return render(request, "account_edit.html", context)
 
