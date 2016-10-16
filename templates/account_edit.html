@@ -18,7 +18,7 @@
             var description = $(this).parent().find('.description').val();
             var userId = $(this).val();
             var data = {
-                "fulName":fullName,
+                "fullName":fullName,
                 "birthday":birthday,
                 "city":city,
                 "country":country,
@@ -26,8 +26,13 @@
                 "userId":userId
             };
             $.ajax({
-                url:"/account/save-user-details",
-                data:data
+                url:"/save-user-details",
+                type: "POST",
+                data:data,
+                success: function (response)
+                {
+                    alert("Data saved!")
+                }
 
             });
         });

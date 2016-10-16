@@ -1,3 +1,5 @@
+import json
+
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
@@ -7,6 +9,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.template.context_processors import csrf
 from django.urls import reverse
+from django.views.decorators.csrf import csrf_exempt
 
 from MeetUpApp.models import UserDetails
 
@@ -58,3 +61,19 @@ def edit_info(request, **kwargs):
     context = {'user_details': user_details}
     return render(request, "account_edit.html", context)
 
+@csrf_exempt
+def save_info(request):
+    full_name = request.POST["fullName"]
+    # birthday = request.POST["birthday"]
+    city = request.POST["city"]
+    country = request.POST["country"]
+    description = request.POST["description"]
+    userId = request.POST["userId"]
+    user = UserDetails.objects.get(user_id=userId)
+    user.full_name = full_name
+    # user.birthday = birthday
+    user.city = city
+    user.country = country
+    user.description = description
+    user.save()
+    return HttpResponse(json.dumps({'Status': 'OK'}), content_type="application/json")
