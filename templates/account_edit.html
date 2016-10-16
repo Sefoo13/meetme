@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+{% extends "main.html" %}
+{% block head %}
     <title>Edit Personal information</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-</head>
+{% endblock %}
+{% block body %}
 <body>
 <script>
     $(document).ready(function ()
@@ -12,7 +10,10 @@
         $('.edit-info').on("click", function (event)
         {
             var fullName = $(this).parent().find('.full-name').val();
-            var birthday = $(this).parent().find('.birthday').val();
+            var day = $(this).parent().find('#day').val();
+            var month = $(this).parent().find('#month').val();
+            var year = $(this).parent().find('#year').val();
+            var birthday = year + "-" + month + "-" + day;
             var city = $(this).parent().find('.city').val();
             var country = $(this).parent().find('.country').val();
             var description = $(this).parent().find('.description').val();
@@ -43,11 +44,37 @@
 </script>
 <div>
     <input value="{{ user_details.full_name }}" class="full-name">
-    <input value="{{ user_details.birthday }}" class="birthday">
+        <select id="day">
+            {% for day in days %}
+                {% if day == user_day %}
+                    <option selected value="{{ day }}">{{ day }}</option>
+                {% else %}
+                    <option value="{{ day }}">{{ day }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        <select id="month">
+            {% for month in months %}
+                {% if month == user_month %}
+                    <option selected value="{{ month }}">{{ month }}</option>
+                {% else %}
+                    <option value="{{ month }}">{{ month }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        <select id="year">
+            {% for year in years %}
+                {% if year == user_year %}
+                    <option selected value="{{ year }}">{{ year }}</option>
+                {% else %}
+                    <option value="{{ year }}">{{ year }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
     <input value="{{ user_details.city }}" class="city">
     <input value="{{ user_details.country }}" class="country">
     <input value="{{ user_details.description }}" class="description">
     <button class="edit-info" value="{{ user_details.user_id }}">Save</button>
 </div>
 </body>
-</html>
+{% endblock %}

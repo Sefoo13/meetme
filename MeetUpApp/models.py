@@ -17,6 +17,16 @@ class UserDetails(models.Model):
     user = models.OneToOneField(User)
     agree_to_meet = models.BooleanField(default=False)
 
+    def get_year(self):
+        return self.birthday.year
+
+    def get_month(self):
+        return self.birthday.month
+
+    def get_day(self):
+        return self.birthday.day
+
+
 class Meetings(models.Model):
     text = models.TextField
     country = models.CharField(max_length=50)

@@ -12,6 +12,7 @@ from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 
 from MeetUpApp.models import UserDetails
+from MeetUpApp.enums import days, months, years
 
 
 def restore_password(request):
@@ -58,20 +59,31 @@ def account(request):
 def edit_info(request, **kwargs):
     userId = kwargs['user_id']
     user_details = UserDetails.objects.get(user_id=userId)
-    context = {'user_details': user_details}
+    user_day = UserDetails.get_day(user_details)
+    user_month = UserDetails.get_month(user_details)
+    user_year = UserDetails.get_year(user_details)
+
+    context = {'user_details': user_details,
+               'days':days,
+               'months':months,
+               'years':years,
+               'user_day':"0"+str(user_day),
+               'user_month':"0"+str(user_month),
+               'user_year':user_year
+               }
     return render(request, "account_edit.html", context)
 
 @csrf_exempt
 def save_info(request):
     full_name = request.POST["fullName"]
-    # birthday = request.POST["birthday"]
+    birthday = request.POST["birthday"]
     city = request.POST["city"]
     country = request.POST["country"]
     description = request.POST["description"]
     userId = request.POST["userId"]
     user = UserDetails.objects.get(user_id=userId)
     user.full_name = full_name
-    # user.birthday = birthday
+    user.birthday = birthday
     user.city = city
     user.country = country
     user.description = description
