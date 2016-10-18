@@ -38,7 +38,7 @@
 
    {# Slider button! #}
    <div class="onoffswitch">
-        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" {% if user_details.agree_to_meet == True %}checked{% endif %}>
         <label class="onoffswitch-label" for="myonoffswitch"></label>
     </div>
 </div>

@@ -102,4 +102,4 @@ def save_info(request):
         user = UserDetails.objects.get(user_id=user_id)
         user.agree_to_meet = agree_to_meet
         user.save()
-        
+        return HttpResponse(json.dumps({'Status': 'OK'}), content_type="application/json")
