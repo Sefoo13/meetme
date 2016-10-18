@@ -75,17 +75,31 @@ def edit_info(request, **kwargs):
 
 @csrf_exempt
 def save_info(request):
-    full_name = request.POST["fullName"]
-    birthday = request.POST["birthday"]
-    city = request.POST["city"]
-    country = request.POST["country"]
-    description = request.POST["description"]
-    userId = request.POST["userId"]
-    user = UserDetails.objects.get(user_id=userId)
-    user.full_name = full_name
-    user.birthday = birthday
-    user.city = city
-    user.country = country
-    user.description = description
-    user.save()
-    return HttpResponse(json.dumps({'Status': 'OK'}), content_type="application/json")
+    action = request.POST['action']
+    if action == "user_details":
+        full_name = request.POST['fullName']
+        birthday = request.POST['birthday']
+        city = request.POST['city']
+        country = request.POST['country']
+        description = request.POST['description']
+        user_id = request.POST['userId']
+        user = UserDetails.objects.get(user_id=user_id)
+        user.full_name = full_name
+        user.birthday = birthday
+        user.city = city
+        user.country = country
+        user.description = description
+        user.save()
+        return HttpResponse(json.dumps({'Status': 'OK'}), content_type="application/json")
+
+    elif action == "agree_to_meet":
+        user_id = request.POST['userId']
+        agree_to_meet = request.POST['agreeToMeet']
+        if agree_to_meet == "true":
+            agree_to_meet = True
+        else:
+            agree_to_meet = False
+        user = UserDetails.objects.get(user_id=user_id)
+        user.agree_to_meet = agree_to_meet
+        user.save()
+        

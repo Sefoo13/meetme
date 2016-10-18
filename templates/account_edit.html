@@ -9,6 +9,7 @@
     {
         $('.edit-info').on("click", function (event)
         {
+            var action = "user_details";
             var fullName = $(this).parent().find('.full-name').val();
             var day = $(this).parent().find('#day').val();
             var month = $(this).parent().find('#month').val();
@@ -19,6 +20,7 @@
             var description = $(this).parent().find('.description').val();
             var userId = $(this).val();
             var data = {
+                "action":action,
                 "fullName":fullName,
                 "birthday":birthday,
                 "city":city,

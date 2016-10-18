@@ -1,10 +1,33 @@
 {% extends "main.html" %}
 
 {% block head %}
+    {% load staticfiles %}
     <title>Account</title>
+    <link rel="stylesheet" href="{% static "account.css" %}">
 {% endblock %}
 {% block body %}
 <body>
+
+<script>
+    $(document).ready(function () {
+        $('#myonoffswitch').on("click", function (event)
+        {
+            var agreeToMeet = $(this).prop('checked');
+            var action = "agree_to_meet";
+            var userId = {{ user_details.user_id }};
+            var data = {
+                'userId':userId,
+                'agreeToMeet':agreeToMeet,
+                'action':action
+            };
+            $.ajax({
+                url:"/save-user-details",
+                type: "POST",
+                data:data
+            });
+        })
+    })
+</script>
 
 <div class="userprofile-options">
     <h1>{{ user_details.full_name }}</h1>
@@ -12,7 +35,14 @@
     <span>{{ user_details.country }}</span>
     <span>{{ user_details.city }}</span>
     <a href="/account/edit/{{ user_details.user_id }}"><button>Change</button></a>
+
+   {# Slider button! #}
+   <div class="onoffswitch">
+        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+        <label class="onoffswitch-label" for="myonoffswitch"></label>
+    </div>
 </div>
+<hr>
 <div></div>
 </body>
 {% endblock %}
