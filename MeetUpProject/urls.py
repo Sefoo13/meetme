@@ -33,8 +33,6 @@ urlpatterns = [
     url(r'^account/edit/(?P<user_id>[0-9]+)', edit_info, name='edit_info'),
     url(r'^save-user-details$', save_info, name='save_info'),
 
-
-    url(r'^messages/', include('django_messages.urls')),
-
+    url(r'^messages/', include('postman.urls', namespace='postman', app_name='postman')),
 
 ]

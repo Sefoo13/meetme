@@ -38,8 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'MeetUpApp',
-    'django_messages',
-    'django.contrib.sites'
+    'django.contrib.sites',
+    'postman'
+
 ]
 
 SITE_ID = 1
@@ -133,3 +134,5 @@ STATIC_URL = '/static/'
 #decorator @login_required redirects here:
 LOGIN_URL = '/login'
 
+POSTMAN_DISALLOW_ANONYMOUS = True
+POSTMAN_DISALLOW_MULTIRECIPIENTS = True
