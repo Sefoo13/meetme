@@ -9,9 +9,9 @@ from django.db import models
 
 class UserDetails(models.Model):
     full_name = models.CharField(max_length=100)
-    country = models.CharField(max_length=50, default="Not set")
-    city = models.CharField(max_length=50, default="Not set")
-    birthday = models.DateField(max_length=50, default=datetime.now())
+    country = models.CharField(max_length=50, default="")
+    city = models.CharField(max_length=50, default="")
+    birthday = models.DateField(auto_now=True)
     rating = models.IntegerField(default=0)
     description = models.TextField(default="Not set")
     user = models.OneToOneField(User)
@@ -27,12 +27,12 @@ class UserDetails(models.Model):
         return self.birthday.day
 
 
-class Meetings(models.Model):
-    text = models.TextField
+class Trip(models.Model):
+    description = models.CharField(max_length=500, default="Not set")
     country = models.CharField(max_length=50)
     city = models.CharField(max_length=50)
-    date_arrive = models.DateField
-    date_leave = models.DateField
+    date_arrive = models.DateField(auto_now=True)
+    date_leave = models.DateField(auto_now=True)
     find_local = models.BooleanField(default=False)
     user = models.ForeignKey(User)
 

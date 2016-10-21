@@ -43,6 +43,14 @@
     </div>
 </div>
 <hr>
-<div></div>
+<div class="trips">
+Number of trips: {{ trips_number }}
+{% if trips_number > 0  %}
+{% for trip in trips %}
+    {{ trip.city }} {{ trip.country }} {{ trip.date_arrive }}
+{% endfor %}
+{% endif %}
+<a href="account/trip"><button>Add Trip</button></a>
+</div>
 </body>
 {% endblock %}

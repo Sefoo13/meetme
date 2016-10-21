@@ -13,7 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from MeetUpApp.views import account, authorization, edit_info, save_info
+from MeetUpApp.views import account, authorization, edit_info, save_info, save_trip
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.views.generic import TemplateView
@@ -31,6 +31,8 @@ urlpatterns = [
     #account urls
     url(r'^account$', account, name='account'),
     url(r'^account/edit/(?P<user_id>[0-9]+)', edit_info, name='edit_info'),
+    url(r'^account/trip$', TemplateView.as_view(template_name="trip.html")),
+    url(r'^account/save-trip$', save_trip, name='save-trip'),
     url(r'^save-user-details$', save_info, name='save_info'),
 
     url(r'^messages/', include('postman.urls', namespace='postman', app_name='postman')),

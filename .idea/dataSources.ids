@@ -24,11 +24,11 @@
       <table id="13" parent="1" name="django_admin_log"/>
       <table id="14" parent="1" name="django_content_type"/>
       <table id="15" parent="1" name="django_session"/>
-      <table id="16" parent="1" name="MeetUpApp_meetings"/>
-      <table id="17" parent="1" name="MeetUpApp_userdetails"/>
-      <table id="18" parent="1" name="django_messages_message"/>
-      <table id="19" parent="1" name="django_site"/>
-      <table id="20" parent="1" name="postman_message"/>
+      <table id="16" parent="1" name="MeetUpApp_userdetails"/>
+      <table id="17" parent="1" name="django_messages_message"/>
+      <table id="18" parent="1" name="django_site"/>
+      <table id="19" parent="1" name="postman_message"/>
+      <table id="20" parent="1" name="MeetUpApp_trip"/>
       <column id="21" parent="6" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
@@ -415,300 +415,304 @@ model</columns>
         <mandatory>1</mandatory>
         <data-type>varchar(50)|0</data-type>
       </column>
-      <column id="107" parent="16" name="user_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)|0</data-type>
-      </column>
-      <column id="108" parent="16" name="find_local">
-        <mandatory>1</mandatory>
-        <data-type>tinyint(1)|0</data-type>
-      </column>
-      <index id="109" parent="16" name="MeetUpApp_meetings_user_id_b7f9b509_fk_auth_user_id">
-        <columns>user_id</columns>
-        <desc-columns></desc-columns>
-      </index>
-      <key id="110" parent="16" name="PRIMARY">
-        <columns>id</columns>
-        <primary>1</primary>
-      </key>
-      <foreign-key id="111" parent="16" name="MeetUpApp_meetings_user_id_b7f9b509_fk_auth_user_id">
-        <columns>user_id</columns>
-        <ref-key>~.auth_user.PRIMARY</ref-key>
-        <cascade-update-rule>restrict</cascade-update-rule>
-        <cascade-delete-rule>restrict</cascade-delete-rule>
-      </foreign-key>
-      <column id="112" parent="17" name="id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)|0</data-type>
-        <sequence-identity>1</sequence-identity>
-      </column>
-      <column id="113" parent="17" name="country">
-        <mandatory>1</mandatory>
-        <data-type>varchar(50)|0</data-type>
-      </column>
-      <column id="114" parent="17" name="city">
-        <mandatory>1</mandatory>
-        <data-type>varchar(50)|0</data-type>
-      </column>
-      <column id="115" parent="17" name="birthday">
+      <column id="107" parent="16" name="birthday">
         <mandatory>1</mandatory>
         <data-type>date|0</data-type>
       </column>
-      <column id="116" parent="17" name="user_id">
+      <column id="108" parent="16" name="user_id">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
       </column>
-      <column id="117" parent="17" name="description">
+      <column id="109" parent="16" name="description">
         <mandatory>1</mandatory>
         <data-type>longtext|0</data-type>
       </column>
-      <column id="118" parent="17" name="full_name">
+      <column id="110" parent="16" name="full_name">
         <mandatory>1</mandatory>
         <data-type>varchar(100)|0</data-type>
       </column>
-      <column id="119" parent="17" name="rating">
+      <column id="111" parent="16" name="rating">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
       </column>
-      <column id="120" parent="17" name="agree_to_meet">
+      <column id="112" parent="16" name="agree_to_meet">
         <mandatory>1</mandatory>
         <data-type>tinyint(1)|0</data-type>
       </column>
-      <index id="121" parent="17" name="user_id">
+      <index id="113" parent="16" name="user_id">
         <columns>user_id</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="122" parent="17" name="PRIMARY">
+      <key id="114" parent="16" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <key id="123" parent="17" name="user_id">
+      <key id="115" parent="16" name="user_id">
         <columns>user_id</columns>
         <underlying-index>user_id</underlying-index>
       </key>
-      <foreign-key id="124" parent="17" name="MeetUpApp_userdetails_user_id_464ff01e_fk_auth_user_id">
+      <foreign-key id="116" parent="16" name="MeetUpApp_userdetails_user_id_464ff01e_fk_auth_user_id">
         <columns>user_id</columns>
         <ref-key>~.auth_user.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="125" parent="18" name="id">
+      <column id="117" parent="17" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="126" parent="18" name="subject">
+      <column id="118" parent="17" name="subject">
         <mandatory>1</mandatory>
         <data-type>varchar(140)|0</data-type>
       </column>
-      <column id="127" parent="18" name="body">
+      <column id="119" parent="17" name="body">
         <mandatory>1</mandatory>
         <data-type>longtext|0</data-type>
       </column>
-      <column id="128" parent="18" name="sent_at">
+      <column id="120" parent="17" name="sent_at">
         <data-type>datetime(6)|0</data-type>
       </column>
-      <column id="129" parent="18" name="read_at">
+      <column id="121" parent="17" name="read_at">
         <data-type>datetime(6)|0</data-type>
       </column>
-      <column id="130" parent="18" name="replied_at">
+      <column id="122" parent="17" name="replied_at">
         <data-type>datetime(6)|0</data-type>
       </column>
-      <column id="131" parent="18" name="sender_deleted_at">
+      <column id="123" parent="17" name="sender_deleted_at">
         <data-type>datetime(6)|0</data-type>
       </column>
-      <column id="132" parent="18" name="recipient_deleted_at">
+      <column id="124" parent="17" name="recipient_deleted_at">
         <data-type>datetime(6)|0</data-type>
       </column>
-      <column id="133" parent="18" name="parent_msg_id">
+      <column id="125" parent="17" name="parent_msg_id">
         <data-type>int(11)|0</data-type>
       </column>
-      <column id="134" parent="18" name="recipient_id">
+      <column id="126" parent="17" name="recipient_id">
         <data-type>int(11)|0</data-type>
       </column>
-      <column id="135" parent="18" name="sender_id">
+      <column id="127" parent="17" name="sender_id">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
       </column>
-      <index id="136" parent="18" name="django_messages_message_recipient_id_bdfe9b23_fk_auth_user_id">
+      <index id="128" parent="17" name="django_messages_message_recipient_id_bdfe9b23_fk_auth_user_id">
         <columns>recipient_id</columns>
         <desc-columns></desc-columns>
       </index>
-      <index id="137" parent="18" name="django_messages_message_sender_id_abbb5a51_fk_auth_user_id">
+      <index id="129" parent="17" name="django_messages_message_sender_id_abbb5a51_fk_auth_user_id">
         <columns>sender_id</columns>
         <desc-columns></desc-columns>
       </index>
-      <index id="138" parent="18" name="django_mess_parent_msg_id_3a04ba96_fk_django_messages_message_id">
+      <index id="130" parent="17" name="django_mess_parent_msg_id_3a04ba96_fk_django_messages_message_id">
         <columns>parent_msg_id</columns>
         <desc-columns></desc-columns>
+      </index>
+      <key id="131" parent="17" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="132" parent="17" name="django_mess_parent_msg_id_3a04ba96_fk_django_messages_message_id">
+        <columns>parent_msg_id</columns>
+        <ref-key>PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="133" parent="17" name="django_messages_message_recipient_id_bdfe9b23_fk_auth_user_id">
+        <columns>recipient_id</columns>
+        <ref-key>~.auth_user.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="134" parent="17" name="django_messages_message_sender_id_abbb5a51_fk_auth_user_id">
+        <columns>sender_id</columns>
+        <ref-key>~.auth_user.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="135" parent="18" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)|0</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="136" parent="18" name="domain">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="137" parent="18" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)|0</data-type>
+      </column>
+      <index id="138" parent="18" name="django_site_domain_a2e37b91_uniq">
+        <columns>domain</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
       </index>
       <key id="139" parent="18" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="140" parent="18" name="django_mess_parent_msg_id_3a04ba96_fk_django_messages_message_id">
-        <columns>parent_msg_id</columns>
-        <ref-key>PRIMARY</ref-key>
-        <cascade-update-rule>restrict</cascade-update-rule>
-        <cascade-delete-rule>restrict</cascade-delete-rule>
-      </foreign-key>
-      <foreign-key id="141" parent="18" name="django_messages_message_recipient_id_bdfe9b23_fk_auth_user_id">
-        <columns>recipient_id</columns>
-        <ref-key>~.auth_user.PRIMARY</ref-key>
-        <cascade-update-rule>restrict</cascade-update-rule>
-        <cascade-delete-rule>restrict</cascade-delete-rule>
-      </foreign-key>
-      <foreign-key id="142" parent="18" name="django_messages_message_sender_id_abbb5a51_fk_auth_user_id">
-        <columns>sender_id</columns>
-        <ref-key>~.auth_user.PRIMARY</ref-key>
-        <cascade-update-rule>restrict</cascade-update-rule>
-        <cascade-delete-rule>restrict</cascade-delete-rule>
-      </foreign-key>
-      <column id="143" parent="19" name="id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)|0</data-type>
-        <sequence-identity>1</sequence-identity>
-      </column>
-      <column id="144" parent="19" name="domain">
-        <mandatory>1</mandatory>
-        <data-type>varchar(100)|0</data-type>
-      </column>
-      <column id="145" parent="19" name="name">
-        <mandatory>1</mandatory>
-        <data-type>varchar(50)|0</data-type>
-      </column>
-      <index id="146" parent="19" name="django_site_domain_a2e37b91_uniq">
-        <columns>domain</columns>
-        <desc-columns></desc-columns>
-        <unique>1</unique>
-      </index>
-      <key id="147" parent="19" name="PRIMARY">
-        <columns>id</columns>
-        <primary>1</primary>
-      </key>
-      <key id="148" parent="19" name="django_site_domain_a2e37b91_uniq">
+      <key id="140" parent="18" name="django_site_domain_a2e37b91_uniq">
         <columns>domain</columns>
         <underlying-index>django_site_domain_a2e37b91_uniq</underlying-index>
       </key>
-      <column id="149" parent="20" name="id">
+      <column id="141" parent="19" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="150" parent="20" name="subject">
+      <column id="142" parent="19" name="subject">
         <mandatory>1</mandatory>
         <data-type>varchar(120)|0</data-type>
       </column>
-      <column id="151" parent="20" name="body">
+      <column id="143" parent="19" name="body">
         <mandatory>1</mandatory>
         <data-type>longtext|0</data-type>
       </column>
-      <column id="152" parent="20" name="email">
+      <column id="144" parent="19" name="email">
         <mandatory>1</mandatory>
         <data-type>varchar(254)|0</data-type>
       </column>
-      <column id="153" parent="20" name="sent_at">
+      <column id="145" parent="19" name="sent_at">
         <mandatory>1</mandatory>
         <data-type>datetime(6)|0</data-type>
       </column>
-      <column id="154" parent="20" name="read_at">
+      <column id="146" parent="19" name="read_at">
         <data-type>datetime(6)|0</data-type>
       </column>
-      <column id="155" parent="20" name="replied_at">
+      <column id="147" parent="19" name="replied_at">
         <data-type>datetime(6)|0</data-type>
       </column>
-      <column id="156" parent="20" name="sender_archived">
-        <mandatory>1</mandatory>
-        <data-type>tinyint(1)|0</data-type>
-      </column>
-      <column id="157" parent="20" name="recipient_archived">
+      <column id="148" parent="19" name="sender_archived">
         <mandatory>1</mandatory>
         <data-type>tinyint(1)|0</data-type>
       </column>
-      <column id="158" parent="20" name="sender_deleted_at">
+      <column id="149" parent="19" name="recipient_archived">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)|0</data-type>
+      </column>
+      <column id="150" parent="19" name="sender_deleted_at">
         <data-type>datetime(6)|0</data-type>
       </column>
-      <column id="159" parent="20" name="recipient_deleted_at">
+      <column id="151" parent="19" name="recipient_deleted_at">
         <data-type>datetime(6)|0</data-type>
       </column>
-      <column id="160" parent="20" name="moderation_status">
+      <column id="152" parent="19" name="moderation_status">
         <mandatory>1</mandatory>
         <data-type>varchar(1)|0</data-type>
       </column>
-      <column id="161" parent="20" name="moderation_date">
+      <column id="153" parent="19" name="moderation_date">
         <data-type>datetime(6)|0</data-type>
       </column>
-      <column id="162" parent="20" name="moderation_reason">
+      <column id="154" parent="19" name="moderation_reason">
         <mandatory>1</mandatory>
         <data-type>varchar(120)|0</data-type>
       </column>
-      <column id="163" parent="20" name="moderation_by_id">
+      <column id="155" parent="19" name="moderation_by_id">
         <data-type>int(11)|0</data-type>
       </column>
-      <column id="164" parent="20" name="parent_id">
+      <column id="156" parent="19" name="parent_id">
         <data-type>int(11)|0</data-type>
       </column>
-      <column id="165" parent="20" name="recipient_id">
+      <column id="157" parent="19" name="recipient_id">
         <data-type>int(11)|0</data-type>
       </column>
-      <column id="166" parent="20" name="sender_id">
+      <column id="158" parent="19" name="sender_id">
         <data-type>int(11)|0</data-type>
       </column>
-      <column id="167" parent="20" name="thread_id">
+      <column id="159" parent="19" name="thread_id">
         <data-type>int(11)|0</data-type>
       </column>
-      <index id="168" parent="20" name="postman_message_moderation_by_id_f0d43d80_fk_auth_user_id">
+      <index id="160" parent="19" name="postman_message_moderation_by_id_f0d43d80_fk_auth_user_id">
         <columns>moderation_by_id</columns>
         <desc-columns></desc-columns>
       </index>
-      <index id="169" parent="20" name="postman_message_parent_id_4b6238da_fk_postman_message_id">
+      <index id="161" parent="19" name="postman_message_parent_id_4b6238da_fk_postman_message_id">
         <columns>parent_id</columns>
         <desc-columns></desc-columns>
       </index>
-      <index id="170" parent="20" name="postman_message_recipient_id_5f2df2fc_fk_auth_user_id">
+      <index id="162" parent="19" name="postman_message_recipient_id_5f2df2fc_fk_auth_user_id">
         <columns>recipient_id</columns>
         <desc-columns></desc-columns>
       </index>
-      <index id="171" parent="20" name="postman_message_sender_id_6d102a43_fk_auth_user_id">
+      <index id="163" parent="19" name="postman_message_sender_id_6d102a43_fk_auth_user_id">
         <columns>sender_id</columns>
         <desc-columns></desc-columns>
       </index>
-      <index id="172" parent="20" name="postman_message_thread_id_cd603329_fk_postman_message_id">
+      <index id="164" parent="19" name="postman_message_thread_id_cd603329_fk_postman_message_id">
         <columns>thread_id</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="173" parent="20" name="PRIMARY">
+      <key id="165" parent="19" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="174" parent="20" name="postman_message_moderation_by_id_f0d43d80_fk_auth_user_id">
+      <foreign-key id="166" parent="19" name="postman_message_moderation_by_id_f0d43d80_fk_auth_user_id">
         <columns>moderation_by_id</columns>
         <ref-key>~.auth_user.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="175" parent="20" name="postman_message_parent_id_4b6238da_fk_postman_message_id">
+      <foreign-key id="167" parent="19" name="postman_message_parent_id_4b6238da_fk_postman_message_id">
         <columns>parent_id</columns>
         <ref-key>PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="176" parent="20" name="postman_message_recipient_id_5f2df2fc_fk_auth_user_id">
+      <foreign-key id="168" parent="19" name="postman_message_recipient_id_5f2df2fc_fk_auth_user_id">
         <columns>recipient_id</columns>
         <ref-key>~.auth_user.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="177" parent="20" name="postman_message_sender_id_6d102a43_fk_auth_user_id">
+      <foreign-key id="169" parent="19" name="postman_message_sender_id_6d102a43_fk_auth_user_id">
         <columns>sender_id</columns>
         <ref-key>~.auth_user.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="178" parent="20" name="postman_message_thread_id_cd603329_fk_postman_message_id">
+      <foreign-key id="170" parent="19" name="postman_message_thread_id_cd603329_fk_postman_message_id">
         <columns>thread_id</columns>
         <ref-key>PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="171" parent="20" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)|0</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="172" parent="20" name="country">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)|0</data-type>
+      </column>
+      <column id="173" parent="20" name="city">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)|0</data-type>
+      </column>
+      <column id="174" parent="20" name="user_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)|0</data-type>
+      </column>
+      <column id="175" parent="20" name="find_local">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)|0</data-type>
+      </column>
+      <column id="176" parent="20" name="description">
+        <mandatory>1</mandatory>
+        <data-type>longtext|0</data-type>
+      </column>
+      <index id="177" parent="20" name="MeetUpApp_meetings_user_id_b7f9b509_fk_auth_user_id">
+        <columns>user_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="178" parent="20" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="179" parent="20" name="MeetUpApp_meetings_user_id_b7f9b509_fk_auth_user_id">
+        <columns>user_id</columns>
+        <ref-key>~.auth_user.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>

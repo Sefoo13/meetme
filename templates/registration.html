@@ -6,7 +6,7 @@
 {% block body %}
 
     <body>
-    <form action="/login_form" method="post" name="test_form">
+    <form action="/login_form" method="post">
     {% csrf_token %}
         <div class="form-group">
             <label for="username">Username:</label>
